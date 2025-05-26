@@ -4,15 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>懒大王的博客</title>
+  <title>用C语言实现井字棋胜负判断：代码优化与逻辑合并 | 懒大王的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="记录生活、代码、C、JAVA、Python、Web�?">
-<meta property="og:type" content="website">
-<meta property="og:title" content="懒大王的博客">
-<meta property="og:url" content="http://example.com/">
+  <meta name="description" content="1234567井字棋（Tic-Tac-Toe）是一个经典的小游戏，也是编程学习中的一个常见练习题。本文将通过 C 语言实现一个 3×3 棋盘的井字棋胜负判断程序，并逐步优化实现过程，将行、列、对角线的判断逻辑进行合并，提升代码结构的清晰度与可维护性。---## 🧩 问题描述用户输入一个 3×3 的棋盘矩阵，用整数 &#96;0&#96; 表示 O 方、&#96;1&#96; 表示 X 方，我们要判断是否有一方赢得比赛。  12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用C语言实现井字棋胜负判断：代码优化与逻辑合并">
+<meta property="og:url" content="http://example.com/%E4%BA%95%E5%AD%97%E6%A3%8B%E6%B8%B8%E6%88%8F%E5%88%A4%E5%88%AB%E8%83%9C%E5%88%A9%E6%96%B9/">
 <meta property="og:site_name" content="懒大王的博客">
-<meta property="og:description" content="记录生活、代码、C、JAVA、Python、Web�?">
+<meta property="og:description" content="1234567井字棋（Tic-Tac-Toe）是一个经典的小游戏，也是编程学习中的一个常见练习题。本文将通过 C 语言实现一个 3×3 棋盘的井字棋胜负判断程序，并逐步优化实现过程，将行、列、对角线的判断逻辑进行合并，提升代码结构的清晰度与可维护性。---## 🧩 问题描述用户输入一个 3×3 的棋盘矩阵，用整数 &#96;0&#96; 表示 O 方、&#96;1&#96; 表示 X 方，我们要判断是否有一方赢得比赛。  12">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-05-26T08:18:53.000Z">
+<meta property="article:modified_time" content="2025-05-26T08:23:52.541Z">
 <meta property="article:author" content="懒大�?">
 <meta property="article:tag" content="C、JAVA、Python、Web开�?">
 <meta name="twitter:card" content="summary">
@@ -76,9 +78,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-井字棋游戏判别胜利方" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-井字棋游戏判别胜利方" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/%E4%BA%95%E5%AD%97%E6%A3%8B%E6%B8%B8%E6%88%8F%E5%88%A4%E5%88%AB%E8%83%9C%E5%88%A9%E6%96%B9/" class="article-date">
   <time class="dt-published" datetime="2025-05-26T08:18:53.000Z" itemprop="datePublished">2025-05-26</time>
@@ -91,8 +91,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/%E4%BA%95%E5%AD%97%E6%A3%8B%E6%B8%B8%E6%88%8F%E5%88%A4%E5%88%AB%E8%83%9C%E5%88%A9%E6%96%B9/">用C语言实现井字棋胜负判断：代码优化与逻辑合并</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      用C语言实现井字棋胜负判断：代码优化与逻辑合并
     </h1>
   
 
@@ -134,75 +134,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-矩阵交换" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/%E7%9F%A9%E9%98%B5%E4%BA%A4%E6%8D%A2/" class="article-date">
-  <time class="dt-published" datetime="2025-05-25T13:37:21.000Z" itemprop="datePublished">2025-05-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/%E7%9F%A9%E9%98%B5%E4%BA%A4%E6%8D%A2/">矩阵交换</a>
-    </h1>
+    <a href="/%E7%9F%A9%E9%98%B5%E4%BA%A4%E6%8D%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">矩阵交换</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>KiKi有一个矩阵，他想知道经过k次行变换或列变换后得到的矩阵。请编程帮他解答。</p>
-<h3 id="输入描述："><a href="#输入描述：" class="headerlink" title="输入描述："></a>输入描述：</h3><p>第一行包含两个整数n和m，表示一个矩阵包含n行m列，用空格分隔。 (1≤n≤10,1≤m≤10)</p>
-<p>从2到n+1行，每行输入m个整数（范围-231~231-1），用空格分隔，共输入n*m个数，表示第一个矩阵中的元素。</p>
-<p>接下来一行输入k，表示要执行k次操作（1≤k≤5）。接下来有k行，每行包括一个字符t和两个数a和b，中间用空格格分隔，t代表需要执行的操作，当t为字符’r’时代表进行行变换，当t为字符’c’时代表进行列变换，a和b为需要互换的行或列（1≤a≤b≤n≤10，1≤a≤b≤m≤10）。</p>
-<p>说明：<code>当t为别的字符时不需要处理，所以只交换了原矩阵的第1列和第2列。 </code></p>
-<h3 id="输出描述："><a href="#输出描述：" class="headerlink" title="输出描述："></a>输出描述：</h3><p>输出n行m列，为矩阵交换后的结果。每个数后面有一个空格。</p>
-<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><p>输入：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2 2</span><br><span class="line">1 2</span><br><span class="line">3 4</span><br><span class="line">1</span><br><span class="line">r 1 2</span><br></pre></td></tr></table></figure>
-
-<p>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3 4 </span><br><span class="line">1 2 </span><br></pre></td></tr></table></figure>
-
-<h2 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h2><p>输入：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2 2</span><br><span class="line">1 3</span><br><span class="line">6 8</span><br><span class="line">2</span><br><span class="line">c 1 2</span><br><span class="line">t 1 2</span><br></pre></td></tr></table></figure>
-
-<p>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3 1 </span><br><span class="line">8 6 </span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<p>C代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;  </span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;            // 矩阵的行数</span><br><span class="line">    int m;            // 矩阵的列数</span><br><span class="line">    int k;            // 要进行的行列变换的次数</span><br><span class="line">    int temp;         // 用于交换时临时存储变量</span><br><span class="line"></span><br><span class="line">    // 输入矩阵的行数和列数</span><br><span class="line">    scanf(&quot;%d %d&quot;, &amp;n, &amp;m);</span><br><span class="line"></span><br><span class="line">    int p[n][m];      // 定义一个 n 行 m 列的二维数组，用于存储矩阵元素</span><br><span class="line"></span><br><span class="line">    // 输入矩阵的各个元素</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        for (int j = 0; j &lt; m; j++) &#123;</span><br><span class="line">            scanf(&quot;%d&quot;, &amp;p[i][j]);      //存储在p数组中</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 输入要进行的变换次数</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;k);</span><br><span class="line">    </span><br><span class="line">	char t[k];        // 存储每次变换的类型：&#x27;r&#x27; 表示行变换，&#x27;c&#x27; 表示列变换</span><br><span class="line">    int a[k];         // 存储每次变换中涉及的第一个行/列编号</span><br><span class="line">    int b[k];         // 存储每次变换中涉及的第二个行/列编号</span><br><span class="line">    </span><br><span class="line">    // 依次输入 k 次变换的类型和操作对象编号</span><br><span class="line">    for (int i = 0; i &lt; k; i++) &#123;</span><br><span class="line">        scanf(&quot; %c %d %d&quot;, &amp;t[i], &amp;a[i], &amp;b[i]);    // %c前面的空格防止读取换行符等残留字符</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 对每一次变换进行处理</span><br><span class="line">    for (int i = 0; i &lt; k; i++) &#123;</span><br><span class="line">        temp = 0;  // 每次交换前清空 temp</span><br><span class="line"></span><br><span class="line">        // 行交换</span><br><span class="line">        if (t[i] == &#x27;r&#x27;) &#123;</span><br><span class="line">            for (int j = 0; j &lt; m; j++) &#123;</span><br><span class="line">                // 将第 a[j]行与第 b[j]行的每一列对应元素交换 数组中的下标要-1</span><br><span class="line">                temp = p[a[i] - 1][j];</span><br><span class="line">                p[a[i] - 1][j] = p[b[i] - 1][j];</span><br><span class="line">                p[b[i] - 1][j] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        // 列交换</span><br><span class="line">        else if (t[i] == &#x27;c&#x27;) &#123;</span><br><span class="line">            for (int j = 0; j &lt; n; j++) &#123;</span><br><span class="line">                // 将第 a[i]列与第 b[i]列的每一行对应元素交换 数组中的下标要-1</span><br><span class="line">                temp = p[j][a[i] - 1];</span><br><span class="line">                p[j][a[i] - 1] = p[j][b[i] - 1];</span><br><span class="line">                p[j][b[i] - 1] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 输出变换后的矩阵</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        for (int j = 0; j &lt; m; j++) &#123;</span><br><span class="line">            printf(&quot;%d &quot;, p[i][j]); // 输出每个元素并加空格</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;); // 每一行输出后换行</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return 0; // 程序结束</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/%E7%9F%A9%E9%98%B5%E4%BA%A4%E6%8D%A2/" data-id="cmb4epccx0000uw8z64ra5nbx" data-title="矩阵交换" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
 
 
 </section>
